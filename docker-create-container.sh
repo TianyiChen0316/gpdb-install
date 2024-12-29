@@ -16,4 +16,4 @@ for hostname in $(cat ./container-configs/hosts | awk '{print $2}'); do
   i=`expr $i + 1`
 done
 docker cp ./gpconfigs gpdb-${coordinator}:/home/gpadmin/
-docker exec -it gpdb-${coordinator} /bin/bash -c 'cd ~ && source /usr/local/gpdb/greenplum_path.sh && sudo -u root /root/.startup.sh && ./auto_hosts_configure.sh && gpssh-exkeys -f gpconfigs/hostfile_exkeys && gpinitsystem -c gpconfigs/gpinitsystem_config -h gpconfigs/hostfile_gpinitsystem -a'
+docker exec -it gpdb-${coordinator} /bin/bash -c 'cd ~ && source /usr/local/gpdb/greenplum_path.sh && sudo -u root /root/.startup.sh && ./auto_hosts_configure.sh && gpssh-exkeys -f gpconfigs/hostfile_exkeys && gpinitsystem -c gpconfigs/gpinitsystem_config -h gpconfigs/hostfile_gpinitsystem -a -n en_US.UTF-8'
