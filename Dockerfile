@@ -23,7 +23,6 @@ RUN mkdir -p /data/coordinator
 RUN mkdir -p /home/gpadmin/gpconfigs
 RUN cp -r /usr/local/gpdb/docs/cli_help/gpconfigs /home/gpadmin/
 RUN echo 'source /usr/local/gpdb/greenplum_path.sh' >> /home/gpadmin/.bashrc
-RUN echo 'export COORDINATOR_DATA_DIRECTORY=/data/coordinator' >> /home/gpadmin/.bashrc
 RUN chown -R gpadmin:gpadmin /home/gpadmin /data
 
 # Configuring startup settings
